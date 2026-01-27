@@ -14,10 +14,8 @@ public class VetorTest {
         Vetor vetor = new Vetor(5);
         vetor.adiciona("A");
         vetor.adiciona("B");
-        
-        boolean resultado = vetor.adiciona("C");
+        vetor.adiciona("C");
 
-        assertTrue(resultado);
         assertEquals("A", vetor.buscaPorIndice(0));
         assertEquals("B", vetor.buscaPorIndice(1));
         assertEquals("C", vetor.buscaPorIndice(2));
@@ -30,12 +28,12 @@ public class VetorTest {
         Vetor vetor = new Vetor(2);
         vetor.adiciona("A");
         vetor.adiciona("B");
+        vetor.adiciona("C");
 
-        boolean resultado = vetor.adiciona("C");
-
-        assertFalse(resultado);
+        
         assertEquals("A", vetor.buscaPorIndice(0));
         assertEquals("B", vetor.buscaPorIndice(1));
+        assertEquals("C", vetor.buscaPorIndice(2));
     }
 
     @Test
@@ -183,6 +181,34 @@ public class VetorTest {
         Exception e = assertThrows(IllegalArgumentException.class, () -> {vetor.adiciona("H", 10);});
         
         assertEquals("Posição inválida!", e.getMessage());
+    }
+
+    @Test
+    void aumentarCapacidadeDoVetorAdicionandoFinal(){
+
+        Vetor vetor = new Vetor(3);
+        vetor.adiciona("A");
+        vetor.adiciona("B");
+        vetor.adiciona("C");
+        vetor.adiciona("D");
+        vetor.adiciona("E");
+
+        assertEquals(6, vetor.getCapacidade());
+        assertEquals(5, vetor.getTamanho());
+    }
+
+    @Test
+    void aumentarCapacidadeDoVetorAdicionandoPosicao(){
+
+        Vetor vetor = new Vetor(3);
+        vetor.adiciona("A", 0);
+        vetor.adiciona("B", 1);
+        vetor.adiciona("C", 2);
+        vetor.adiciona("D", 3);
+        vetor.adiciona("E", 4);
+
+        assertEquals(6, vetor.getCapacidade());
+        assertEquals(5, vetor.getTamanho());
     }
  
 }

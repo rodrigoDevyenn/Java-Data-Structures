@@ -10,22 +10,21 @@ public class Vetor {
         this.tamanho = 0;
     }
 
-    public boolean adiciona(String elemento) {
+    public void adiciona(String elemento) {
+        
+        this.aumentarCapacidade();
+        this.elementos[this.tamanho] = elemento;
+        this.tamanho++;
 
-        if (this.tamanho < this.elementos.length){
-            this.elementos[this.tamanho] = elemento;
-            this.tamanho++;
-            return true;
-        }
-        return false;
     }
 
     public boolean adiciona(String elemento, int indice){
 
-        if (!(indice >= 0 && indice < tamanho)){
-            throw new IllegalArgumentException("Posição inválida!");
+        if (this.tamanho != indice){
+            verificaIndiceValido(indice);
         }
         
+        this.aumentarCapacidade();
         for (int i = (tamanho -1); i >= indice; i--){
             this.elementos[i + 1] = this.elementos[i];
         }
@@ -35,11 +34,9 @@ public class Vetor {
     }
 
     public String buscaPorIndice(int indice) throws IllegalArgumentException{
-
-        if (!(indice >= 0 && indice < tamanho)){
-            throw new IllegalArgumentException("Posição inválida!");
-        }
+        verificaIndiceValido(indice);
         return elementos[indice];
+        
     }
 
     public int buscaPorElemento(String elemento){
@@ -50,6 +47,24 @@ public class Vetor {
             }
         }
         return -1;
+    }
+
+    private void aumentarCapacidade(){
+
+        if (this.tamanho == this.elementos.length){
+            String[] novoElementos = new String[this.elementos.length * 2];
+            for (int i = 0; i < this.elementos.length; i++){
+                novoElementos[i] = this.elementos[i];
+            }
+            this.elementos = novoElementos;
+        }
+    }
+
+    private boolean verificaIndiceValido(int inidice){
+        if (inidice < 0 || inidice >= this.tamanho){
+            throw new IllegalArgumentException("Posição inválida!");
+        }
+        return true;
     }
 
     @Override
@@ -72,5 +87,9 @@ public class Vetor {
 
     public int getTamanho(){
         return tamanho;
+    }
+
+    public int getCapacidade(){
+        return this.elementos.length;
     }
 }
