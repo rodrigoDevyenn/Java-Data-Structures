@@ -20,6 +20,14 @@ public class Vetor {
         return false;
     }
 
+    public String buscaPorIndice(int indice) throws IllegalArgumentException{
+
+        if (!(indice >= 0 && indice < tamanho)){
+            throw new IllegalArgumentException("Posição inválida!");
+        }
+        return elementos[indice];
+    }
+
     @Override
     public String toString() {
         
@@ -36,14 +44,6 @@ public class Vetor {
         }
         s.append("]");
         return s.toString();
-    }
-
-    public String[] getElementos(){
-        return elementos;
-    }
-
-    public String getElementoPosicao(int posicao){
-        return elementos[posicao];
     }
 
     public int getTamanho(){

@@ -3,12 +3,11 @@ package com.rodrigoleite.estruturadedados;
 import com.rodrigoleite.estruturadedados.vetor.Vetor;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
 
 public class VetorTest {
-
 
     @Test
     void adicionarElementosQuandoHaEspaco() {
@@ -19,9 +18,9 @@ public class VetorTest {
         boolean resultado = vetor.adiciona("C");
 
         assertTrue(resultado);
-        assertEquals("A", vetor.getElementoPosicao(0));
-        assertEquals("B", vetor.getElementoPosicao(1));
-        assertEquals("C", vetor.getElementoPosicao(2));
+        assertEquals("A", vetor.buscaPorIndice(0));
+        assertEquals("B", vetor.buscaPorIndice(1));
+        assertEquals("C", vetor.buscaPorIndice(2));
 
     }
 
@@ -35,18 +34,8 @@ public class VetorTest {
         boolean resultado = vetor.adiciona("C");
 
         assertFalse(resultado);
-        assertEquals("A", vetor.getElementoPosicao(0));
-        assertEquals("B", vetor.getElementoPosicao(1));
-    }
-
-    @Test
-    void testarGetElementos(){
-         Vetor vetor = new Vetor(5);
-         
-         String[] vetor2 = vetor.getElementos();
-         for (int i = 0; i < vetor.getElementos().length; i++){
-            assertEquals(vetor2[i], vetor.getElementoPosicao(i));
-         }
+        assertEquals("A", vetor.buscaPorIndice(0));
+        assertEquals("B", vetor.buscaPorIndice(1));
     }
 
     @Test
@@ -72,5 +61,44 @@ public class VetorTest {
         assertEquals("[A, B, C]", vetor.toString());
 
     }
+
+    @Test
+    void fazerBuscaValida() {
+
+        Vetor vetor = new Vetor(5);
+        vetor.adiciona("A");
+        vetor.adiciona("B");
+        vetor.adiciona("C");
+
+        assertEquals("A", vetor.buscaPorIndice(0));
+        assertEquals("B", vetor.buscaPorIndice(1));
+        assertEquals("C", vetor.buscaPorIndice(2)); 
+    }
+
+    @Test
+    void fazerBuscaInvalidaComIndiceNegativo() {
+
+        Vetor vetor = new Vetor(5);
+        vetor.adiciona("A");
+        vetor.adiciona("B");
+        vetor.adiciona("C");
+
+        Exception e = assertThrows(IllegalArgumentException.class, () -> {vetor.buscaPorIndice(-1);});
+        
+        assertEquals("Posição inválida!", e.getMessage());
+    }
+    
+    @Test
+    void fazerBuscaInvalidaComIndiceMaiorQueTamanho() {
+
+        Vetor vetor = new Vetor(5);
+        vetor.adiciona("A");
+        vetor.adiciona("B");
+        vetor.adiciona("C");
+
+        Exception e = assertThrows(IllegalArgumentException.class, () -> {vetor.buscaPorIndice(3);});
+        
+        assertEquals("Posição inválida!", e.getMessage());
+    } 
     
 }
