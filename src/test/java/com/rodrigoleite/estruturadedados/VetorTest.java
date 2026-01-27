@@ -99,6 +99,42 @@ public class VetorTest {
         Exception e = assertThrows(IllegalArgumentException.class, () -> {vetor.buscaPorIndice(3);});
         
         assertEquals("Posição inválida!", e.getMessage());
-    } 
+    }
     
+    @Test
+    void fazerBuscaPorElementoQueExiste(){
+        
+        Vetor vetor = new Vetor(5);
+        vetor.adiciona("A");
+        vetor.adiciona("B");
+        vetor.adiciona("C");
+
+        assertEquals(0, vetor.buscaPorElemento("A"));
+        assertEquals(1, vetor.buscaPorElemento("B"));
+        assertEquals(2, vetor.buscaPorElemento("C"));
+    }
+
+    @Test
+    void fazerBuscaPorElementoQueNaoExiste(){
+        
+        Vetor vetor = new Vetor(5);
+        vetor.adiciona("A");
+        vetor.adiciona("B");
+        vetor.adiciona("C");
+
+        assertEquals(-1, vetor.buscaPorElemento("D"));
+    }
+
+    @Test
+    void fazerBuscaPorElementoQueExisteComCaseDiferente(){
+        
+        Vetor vetor = new Vetor(5);
+        vetor.adiciona("A");
+        vetor.adiciona("B");
+        vetor.adiciona("C");
+
+        assertEquals(-1, vetor.buscaPorElemento("a"));
+        assertEquals(-1, vetor.buscaPorElemento("b"));
+    }
+ 
 }
