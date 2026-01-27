@@ -3,19 +3,21 @@ package com.rodrigoleite.estruturadedados.vetor;
 public class Vetor {
 
     private String[] elementos;
+    private int tamanho;
     
     public Vetor(int capacidade){
         this.elementos = new String[capacidade];
+        this.tamanho = 0;
     }
 
-    public void adiciona(String elemento){
+    public boolean adiciona(String elemento) {
 
-        for (int i = 0; i < this.elementos.length; i++){
-            if (this.elementos[i] == null){
-                this.elementos[i] = elemento;
-                break;
-            }
+        if (this.tamanho < this.elementos.length){
+            this.elementos[this.tamanho] = elemento;
+            this.tamanho++;
+            return true;
         }
+        return false;
     }
 
     public String[] getElementos(){
@@ -24,5 +26,9 @@ public class Vetor {
 
     public String getElementoPosicao(int posicao){
         return elementos[posicao];
+    }
+
+    public int getTamanho(){
+        return tamanho;
     }
 }
