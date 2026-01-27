@@ -48,5 +48,29 @@ public class VetorTest {
             assertEquals(vetor2[i], vetor.getElementoPosicao(i));
          }
     }
+
+    @Test
+    void verificarTamanhoDoVetor(){
+
+        Vetor vetor = new Vetor(10);
+        vetor.adiciona("A");
+        vetor.adiciona("B");
+        vetor.adiciona("C");
+
+        assertEquals(3, vetor.getTamanho());
+
+    }
+
+    @Test
+    void verificarImpressaoDoVetor(){
+
+        Vetor vetor  = new Vetor(10);
+        vetor.adiciona("A");
+        vetor.adiciona("B");
+        vetor.adiciona("C");
+
+        assertEquals("[A, B, C]", vetor.toString());
+
+    }
     
 }

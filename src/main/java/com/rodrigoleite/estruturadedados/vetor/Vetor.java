@@ -20,6 +20,24 @@ public class Vetor {
         return false;
     }
 
+    @Override
+    public String toString() {
+        
+        StringBuilder s = new StringBuilder();
+        s.append("[");
+
+        for (int i = 0; i < this.tamanho; i++){
+            if (i < this.tamanho - 1){
+                s.append(this.elementos[i]);
+                s.append(", ");
+            } else {
+                s.append(this.elementos[i]);
+            }
+        }
+        s.append("]");
+        return s.toString();
+    }
+
     public String[] getElementos(){
         return elementos;
     }
