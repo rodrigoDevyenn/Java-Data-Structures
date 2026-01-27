@@ -20,6 +20,20 @@ public class Vetor {
         return false;
     }
 
+    public boolean adiciona(String elemento, int indice){
+
+        if (!(indice >= 0 && indice < tamanho)){
+            throw new IllegalArgumentException("Posição inválida!");
+        }
+        
+        for (int i = (tamanho -1); i >= indice; i--){
+            this.elementos[i + 1] = this.elementos[i];
+        }
+        this.elementos[indice] = elemento;
+        this.tamanho++;
+        return true;
+    }
+
     public String buscaPorIndice(int indice) throws IllegalArgumentException{
 
         if (!(indice >= 0 && indice < tamanho)){

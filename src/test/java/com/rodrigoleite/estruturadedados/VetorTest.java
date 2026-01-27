@@ -136,5 +136,53 @@ public class VetorTest {
         assertEquals(-1, vetor.buscaPorElemento("a"));
         assertEquals(-1, vetor.buscaPorElemento("b"));
     }
+
+    @Test
+    void adicionarElementoNaPosicaoDesejada(){
+
+        Vetor vetor = new Vetor(10);
+        vetor.adiciona("B");
+        vetor.adiciona("C");
+        vetor.adiciona("E");
+        vetor.adiciona("F");
+        vetor.adiciona("G");
+
+        vetor.adiciona("A", 0);
+        vetor.adiciona("D", 3);
+
+        assertEquals("A", vetor.buscaPorIndice(0));
+        assertEquals("D", vetor.buscaPorIndice(3));
+        assertEquals("G", vetor.buscaPorIndice(6));
+    }
+
+    @Test
+    void adicionarElementoNaPosicaoNegativa(){
+
+        Vetor vetor = new Vetor(10);
+        vetor.adiciona("B");
+        vetor.adiciona("C");
+        vetor.adiciona("E");
+        vetor.adiciona("F");
+        vetor.adiciona("G");
+
+        Exception e = assertThrows(IllegalArgumentException.class, () -> {vetor.adiciona("A", -1);});
+        
+        assertEquals("Posição inválida!", e.getMessage());
+    }
+
+    @Test
+    void adicionarElementoNaPosicaoMaiorQueTamanho(){
+
+        Vetor vetor = new Vetor(10);
+        vetor.adiciona("B");
+        vetor.adiciona("C");
+        vetor.adiciona("E");
+        vetor.adiciona("F");
+        vetor.adiciona("G");
+
+        Exception e = assertThrows(IllegalArgumentException.class, () -> {vetor.adiciona("H", 10);});
+        
+        assertEquals("Posição inválida!", e.getMessage());
+    }
  
 }
