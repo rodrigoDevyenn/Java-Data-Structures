@@ -2,15 +2,15 @@ package com.rodrigoleite.estruturadedados.vetor;
 
 public class Vetor {
 
-    private String[] elementos;
+    private Object[] elementos;
     private int tamanho;
     
     public Vetor(int capacidade){
-        this.elementos = new String[capacidade];
+        this.elementos = new Object[capacidade];
         this.tamanho = 0;
     }
 
-    public void adiciona(String elemento) {
+    public void adiciona(Object elemento) {
         
         this.aumentarCapacidade();
         this.elementos[this.tamanho] = elemento;
@@ -18,7 +18,7 @@ public class Vetor {
 
     }
 
-    public boolean adiciona(String elemento, int indice){
+    public boolean adiciona(Object elemento, int indice){
 
         if (this.tamanho != indice){
             verificaIndiceValido(indice);
@@ -42,17 +42,17 @@ public class Vetor {
         this.tamanho--;
     }
 
-    public void remove (String elemento){
+    public void remove (Object elemento){
         this.remove(buscaPorElemento(elemento));
     }
 
-    public String buscaPorIndice(int indice) throws IllegalArgumentException{
+    public Object buscaPorIndice(int indice) throws IllegalArgumentException{
         verificaIndiceValido(indice);
         return elementos[indice];
         
     }
 
-    public int buscaPorElemento(String elemento){
+    public int buscaPorElemento(Object elemento){
 
         for (int i =0 ; i < this.tamanho; i++){
             if (this.elementos[i].equals(elemento)){
@@ -65,7 +65,7 @@ public class Vetor {
     private void aumentarCapacidade(){
 
         if (this.tamanho == this.elementos.length){
-            String[] novoElementos = new String[this.elementos.length * 2];
+            Object[] novoElementos = new Object[this.elementos.length * 2];
             for (int i = 0; i < this.elementos.length; i++){
                 novoElementos[i] = this.elementos[i];
             }
