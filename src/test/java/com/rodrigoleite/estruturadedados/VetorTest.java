@@ -372,4 +372,20 @@ public class VetorTest {
 
         assertEquals(-1, indice);
     }
+
+    @Test
+    void limparVetor(){
+        
+        Vetor<String> vetor = new Vetor<String>(5);
+        vetor.adiciona("A", 0);
+        vetor.adiciona("B", 1);
+        vetor.adiciona("C", 2);
+        vetor.adiciona("D", 3);
+        vetor.adiciona("E", 4);
+
+        vetor.limpar();
+
+        assertEquals("[]", vetor.toString());
+        assertEquals(0, vetor.getTamanho());
+    }
 }

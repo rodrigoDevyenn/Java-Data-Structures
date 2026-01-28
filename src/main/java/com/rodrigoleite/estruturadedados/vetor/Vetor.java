@@ -83,6 +83,13 @@ public class Vetor<T> {
     }
 
     @SuppressWarnings("unchecked")
+    public void limpar(){
+        T[] novoVetor = (T[])  new Object[this.elementos.length];
+        this.elementos = novoVetor;
+        this.tamanho = 0;
+    }
+
+    @SuppressWarnings("unchecked")
     private void aumentarCapacidade(){
 
         if (this.tamanho == this.elementos.length){
