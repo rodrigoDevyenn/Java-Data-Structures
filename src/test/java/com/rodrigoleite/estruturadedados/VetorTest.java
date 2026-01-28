@@ -256,5 +256,32 @@ public class VetorTest {
         assertEquals("Posição inválida!", e.getMessage());
         assertEquals("Posição inválida!", e2.getMessage());
     }
+
+    @Test
+    void removePorElementoValido(){
+
+        Vetor vetor = new Vetor(3);
+        vetor.adiciona("A", 0);
+        vetor.adiciona("B", 1);
+        vetor.adiciona("C", 2);
+        
+        vetor.remove("A");
+
+        assertEquals("B", vetor.buscaPorIndice(0));
+        assertEquals(2, vetor.getTamanho());
+    }
+
+    @Test
+    void removePorElementoQueNaoExiste(){
+
+        Vetor vetor = new Vetor(3);
+        vetor.adiciona("A", 0);
+        vetor.adiciona("B", 1);
+        vetor.adiciona("C", 2);
+
+        Exception e = assertThrows(IllegalArgumentException.class, () -> {vetor.remove("D");});
+        
+        assertEquals("Posição inválida!", e.getMessage());
+    }
  
 }

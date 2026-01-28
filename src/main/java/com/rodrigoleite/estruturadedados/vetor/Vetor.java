@@ -42,6 +42,10 @@ public class Vetor {
         this.tamanho--;
     }
 
+    public void remove (String elemento){
+        this.remove(buscaPorElemento(elemento));
+    }
+
     public String buscaPorIndice(int indice) throws IllegalArgumentException{
         verificaIndiceValido(indice);
         return elementos[indice];
