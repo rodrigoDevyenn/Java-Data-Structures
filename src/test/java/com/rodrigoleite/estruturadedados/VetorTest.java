@@ -17,9 +17,9 @@ public class VetorTest {
         vetor.adiciona("B");
         vetor.adiciona("C");
 
-        assertEquals("A", vetor.buscaPorIndice(0));
-        assertEquals("B", vetor.buscaPorIndice(1));
-        assertEquals("C", vetor.buscaPorIndice(2));
+        assertEquals("A", vetor.obtem(0));
+        assertEquals("B", vetor.obtem(1));
+        assertEquals("C", vetor.obtem(2));
 
     }
 
@@ -32,9 +32,9 @@ public class VetorTest {
         vetor.adiciona("C");
 
         
-        assertEquals("A", vetor.buscaPorIndice(0));
-        assertEquals("B", vetor.buscaPorIndice(1));
-        assertEquals("C", vetor.buscaPorIndice(2));
+        assertEquals("A", vetor.obtem(0));
+        assertEquals("B", vetor.obtem(1));
+        assertEquals("C", vetor.obtem(2));
     }
 
     @Test
@@ -69,9 +69,9 @@ public class VetorTest {
         vetor.adiciona("B");
         vetor.adiciona("C");
 
-        assertEquals("A", vetor.buscaPorIndice(0));
-        assertEquals("B", vetor.buscaPorIndice(1));
-        assertEquals("C", vetor.buscaPorIndice(2)); 
+        assertEquals("A", vetor.obtem(0));
+        assertEquals("B", vetor.obtem(1));
+        assertEquals("C", vetor.obtem(2)); 
     }
 
     @Test
@@ -82,7 +82,7 @@ public class VetorTest {
         vetor.adiciona("B");
         vetor.adiciona("C");
 
-        Exception e = assertThrows(IllegalArgumentException.class, () -> {vetor.buscaPorIndice(-1);});
+        Exception e = assertThrows(IllegalArgumentException.class, () -> {vetor.obtem(-1);});
         
         assertEquals("Posição inválida!", e.getMessage());
     }
@@ -95,7 +95,7 @@ public class VetorTest {
         vetor.adiciona("B");
         vetor.adiciona("C");
 
-        Exception e = assertThrows(IllegalArgumentException.class, () -> {vetor.buscaPorIndice(3);});
+        Exception e = assertThrows(IllegalArgumentException.class, () -> {vetor.obtem(3);});
         
         assertEquals("Posição inválida!", e.getMessage());
     }
@@ -149,9 +149,9 @@ public class VetorTest {
         vetor.adiciona("A", 0);
         vetor.adiciona("D", 3);
 
-        assertEquals("A", vetor.buscaPorIndice(0));
-        assertEquals("D", vetor.buscaPorIndice(3));
-        assertEquals("G", vetor.buscaPorIndice(6));
+        assertEquals("A", vetor.obtem(0));
+        assertEquals("D", vetor.obtem(3));
+        assertEquals("G", vetor.obtem(6));
     }
 
     @Test
@@ -224,7 +224,7 @@ public class VetorTest {
 
         vetor.remove(1);
         
-        assertEquals("C", vetor.buscaPorIndice(1));
+        assertEquals("C", vetor.obtem(1));
         assertEquals(4, vetor.getTamanho());
     }
 
@@ -270,7 +270,7 @@ public class VetorTest {
         
         vetor.remove("A");
 
-        assertEquals("B", vetor.buscaPorIndice(0));
+        assertEquals("B", vetor.obtem(0));
         assertEquals(2, vetor.getTamanho());
     }
 

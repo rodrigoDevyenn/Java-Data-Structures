@@ -47,10 +47,9 @@ public class Vetor<T> {
         this.remove(buscaPorElemento(elemento));
     }
 
-    public T buscaPorIndice(int indice) throws IllegalArgumentException{
+    public T obtem(int indice) throws IllegalArgumentException{
         verificaIndiceValido(indice);
         return elementos[indice];
-        
     }
 
     public int buscaPorElemento(T elemento){
@@ -64,7 +63,7 @@ public class Vetor<T> {
     }
 
     public boolean contem(T elemento){
-        
+
         int indice = buscaPorElemento(elemento);
         if (indice >= 0){
             return true;
