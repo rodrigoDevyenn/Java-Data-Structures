@@ -9,7 +9,7 @@ public class VetorTest {
 
     @Test
     void adicionarElementosQuandoHaEspaco() {
-        Vetor vetor = new Vetor(5);
+        Vetor<String> vetor = new Vetor<String>(5);
         vetor.adiciona("A");
         vetor.adiciona("B");
         vetor.adiciona("C");
@@ -23,7 +23,7 @@ public class VetorTest {
     @Test
     void adicionarElementoComVetorCheio() {
 
-        Vetor vetor = new Vetor(2);
+        Vetor<String> vetor = new Vetor<String>(2);
         vetor.adiciona("A");
         vetor.adiciona("B");
         vetor.adiciona("C");
@@ -37,7 +37,7 @@ public class VetorTest {
     @Test
     void verificarTamanhoDoVetor(){
 
-        Vetor vetor = new Vetor(10);
+        Vetor<String> vetor = new Vetor<String>(10);
         vetor.adiciona("A");
         vetor.adiciona("B");
         vetor.adiciona("C");
@@ -49,7 +49,7 @@ public class VetorTest {
     @Test
     void verificarImpressaoDoVetor(){
 
-        Vetor vetor  = new Vetor(10);
+        Vetor<String> vetor = new Vetor<String>(10);
         vetor.adiciona("A");
         vetor.adiciona("B");
         vetor.adiciona("C");
@@ -61,7 +61,7 @@ public class VetorTest {
     @Test
     void fazerBuscaValida() {
 
-        Vetor vetor = new Vetor(5);
+        Vetor<String> vetor = new Vetor<String>(5);
         vetor.adiciona("A");
         vetor.adiciona("B");
         vetor.adiciona("C");
@@ -74,7 +74,7 @@ public class VetorTest {
     @Test
     void fazerBuscaInvalidaComIndiceNegativo() {
 
-        Vetor vetor = new Vetor(5);
+        Vetor<String> vetor = new Vetor<String>(5);
         vetor.adiciona("A");
         vetor.adiciona("B");
         vetor.adiciona("C");
@@ -87,7 +87,7 @@ public class VetorTest {
     @Test
     void fazerBuscaInvalidaComIndiceMaiorQueTamanho() {
 
-        Vetor vetor = new Vetor(5);
+        Vetor<String> vetor = new Vetor<String>(5);
         vetor.adiciona("A");
         vetor.adiciona("B");
         vetor.adiciona("C");
@@ -100,7 +100,7 @@ public class VetorTest {
     @Test
     void fazerBuscaPorElementoQueExiste(){
         
-        Vetor vetor = new Vetor(5);
+        Vetor<String> vetor = new Vetor<String>(5);
         vetor.adiciona("A");
         vetor.adiciona("B");
         vetor.adiciona("C");
@@ -113,7 +113,7 @@ public class VetorTest {
     @Test
     void fazerBuscaPorElementoQueNaoExiste(){
         
-        Vetor vetor = new Vetor(5);
+        Vetor<String> vetor = new Vetor<String>(5);
         vetor.adiciona("A");
         vetor.adiciona("B");
         vetor.adiciona("C");
@@ -124,7 +124,7 @@ public class VetorTest {
     @Test
     void fazerBuscaPorElementoQueExisteComCaseDiferente(){
         
-        Vetor vetor = new Vetor(5);
+        Vetor<String> vetor = new Vetor<String>(5);
         vetor.adiciona("A");
         vetor.adiciona("B");
         vetor.adiciona("C");
@@ -136,7 +136,7 @@ public class VetorTest {
     @Test
     void adicionarElementoNaPosicaoDesejada(){
 
-        Vetor vetor = new Vetor(10);
+        Vetor<String> vetor = new Vetor<String>(10);
         vetor.adiciona("B");
         vetor.adiciona("C");
         vetor.adiciona("E");
@@ -154,7 +154,7 @@ public class VetorTest {
     @Test
     void adicionarElementoNaPosicaoNegativa(){
 
-        Vetor vetor = new Vetor(10);
+        Vetor<String> vetor = new Vetor<String>(10);
         vetor.adiciona("B");
         vetor.adiciona("C");
         vetor.adiciona("E");
@@ -169,7 +169,7 @@ public class VetorTest {
     @Test
     void adicionarElementoNaPosicaoMaiorQueTamanho(){
 
-        Vetor vetor = new Vetor(10);
+        Vetor<String> vetor = new Vetor<String>(10);
         vetor.adiciona("B");
         vetor.adiciona("C");
         vetor.adiciona("E");
@@ -184,7 +184,7 @@ public class VetorTest {
     @Test
     void aumentarCapacidadeDoVetorAdicionandoFinal(){
 
-        Vetor vetor = new Vetor(3);
+        Vetor<String> vetor = new Vetor<String>(3);
         vetor.adiciona("A");
         vetor.adiciona("B");
         vetor.adiciona("C");
@@ -198,7 +198,7 @@ public class VetorTest {
     @Test
     void aumentarCapacidadeDoVetorAdicionandoPosicao(){
 
-        Vetor vetor = new Vetor(3);
+        Vetor<String> vetor = new Vetor<String>(3);
         vetor.adiciona("A", 0);
         vetor.adiciona("B", 1);
         vetor.adiciona("C", 2);
@@ -212,7 +212,7 @@ public class VetorTest {
     @Test
     void removeElementoValido(){
 
-        Vetor vetor = new Vetor(3);
+        Vetor<String> vetor = new Vetor<String>(3);
         vetor.adiciona("A", 0);
         vetor.adiciona("B", 1);
         vetor.adiciona("C", 2);
@@ -228,7 +228,7 @@ public class VetorTest {
     @Test
     void removeElementoIndiceNegativo(){
 
-        Vetor vetor = new Vetor(3);
+        Vetor<String> vetor = new Vetor<String>(3);
         vetor.adiciona("A", 0);
         vetor.adiciona("B", 1);
         vetor.adiciona("C", 2);
@@ -243,7 +243,7 @@ public class VetorTest {
     @Test
     void removeElementoIndiceMaiorOuIgualTamanho(){
 
-        Vetor vetor = new Vetor(3);
+        Vetor<String> vetor = new Vetor<String>(3);
         vetor.adiciona("A", 0);
         vetor.adiciona("B", 1);
         vetor.adiciona("C", 2);
@@ -260,7 +260,7 @@ public class VetorTest {
     @Test
     void removePorElementoValido(){
 
-        Vetor vetor = new Vetor(3);
+        Vetor<String> vetor = new Vetor<String>(3);
         vetor.adiciona("A", 0);
         vetor.adiciona("B", 1);
         vetor.adiciona("C", 2);
@@ -274,7 +274,7 @@ public class VetorTest {
     @Test
     void removePorElementoQueNaoExiste(){
 
-        Vetor vetor = new Vetor(3);
+        Vetor<String> vetor = new Vetor<String>(3);
         vetor.adiciona("A", 0);
         vetor.adiciona("B", 1);
         vetor.adiciona("C", 2);
