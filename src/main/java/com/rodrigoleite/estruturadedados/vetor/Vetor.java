@@ -33,6 +33,15 @@ public class Vetor {
         return true;
     }
 
+    public void remove(int indice){
+
+        verificaIndiceValido(indice);
+        for (int i = indice; i < (this.tamanho - 1); i++){
+            this.elementos[i] = this.elementos[i + 1];
+        }
+        this.tamanho--;
+    }
+
     public String buscaPorIndice(int indice) throws IllegalArgumentException{
         verificaIndiceValido(indice);
         return elementos[indice];

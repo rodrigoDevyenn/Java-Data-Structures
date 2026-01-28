@@ -2,9 +2,7 @@ package com.rodrigoleite.estruturadedados;
 
 import com.rodrigoleite.estruturadedados.vetor.Vetor;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 public class VetorTest {
@@ -209,6 +207,54 @@ public class VetorTest {
 
         assertEquals(6, vetor.getCapacidade());
         assertEquals(5, vetor.getTamanho());
+    }
+
+    @Test
+    void removeElementoValido(){
+
+        Vetor vetor = new Vetor(3);
+        vetor.adiciona("A", 0);
+        vetor.adiciona("B", 1);
+        vetor.adiciona("C", 2);
+        vetor.adiciona("D", 3);
+        vetor.adiciona("E", 4);
+
+        vetor.remove(1);
+        
+        assertEquals("C", vetor.buscaPorIndice(1));
+        assertEquals(4, vetor.getTamanho());
+    }
+
+    @Test
+    void removeElementoIndiceNegativo(){
+
+        Vetor vetor = new Vetor(3);
+        vetor.adiciona("A", 0);
+        vetor.adiciona("B", 1);
+        vetor.adiciona("C", 2);
+        vetor.adiciona("D", 3);
+        vetor.adiciona("E", 4);
+
+        Exception e = assertThrows(IllegalArgumentException.class, () -> {vetor.remove(-1);});
+
+        assertEquals("Posição inválida!", e.getMessage());
+    }
+
+    @Test
+    void removeElementoIndiceMaiorOuIgualTamanho(){
+
+        Vetor vetor = new Vetor(3);
+        vetor.adiciona("A", 0);
+        vetor.adiciona("B", 1);
+        vetor.adiciona("C", 2);
+        vetor.adiciona("D", 3);
+        vetor.adiciona("E", 4);
+
+        Exception e = assertThrows(IllegalArgumentException.class, () -> {vetor.remove(5);});
+        Exception e2 = assertThrows(IllegalArgumentException.class, () -> {vetor.remove(6);});
+
+        assertEquals("Posição inválida!", e.getMessage());
+        assertEquals("Posição inválida!", e2.getMessage());
     }
  
 }
