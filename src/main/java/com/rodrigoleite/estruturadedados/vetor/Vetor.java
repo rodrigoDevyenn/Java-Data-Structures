@@ -5,6 +5,7 @@ public class Vetor<T> {
     private T[] elementos;
     private int tamanho;
     
+    @SuppressWarnings("unchecked")
     public Vetor(int capacidade){
         this.elementos = (T[]) new Object[capacidade];
         this.tamanho = 0;
@@ -62,6 +63,15 @@ public class Vetor<T> {
         return -1;
     }
 
+    public boolean contem(T elemento){
+        int indice = buscaPorElemento(elemento);
+        if (indice >= 0){
+            return true;
+        }
+        return false;
+    }
+
+    @SuppressWarnings("unchecked")
     private void aumentarCapacidade(){
 
         if (this.tamanho == this.elementos.length){

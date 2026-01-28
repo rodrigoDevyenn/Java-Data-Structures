@@ -2,7 +2,10 @@ package com.rodrigoleite.estruturadedados;
 
 import com.rodrigoleite.estruturadedados.vetor.Vetor;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 
 public class VetorTest {
@@ -283,5 +286,30 @@ public class VetorTest {
         
         assertEquals("Posição inválida!", e.getMessage());
     }
- 
+
+    @Test 
+    void contemElemento(){
+
+        Vetor<String> vetor = new Vetor<String>(3);
+        vetor.adiciona("A", 0);
+        vetor.adiciona("B", 1);
+        vetor.adiciona("C", 2);
+
+        boolean resultado = vetor.contem("A");
+
+        assertTrue(resultado);
+    }
+
+    @Test 
+    void contemElementoNaoExistente(){
+
+        Vetor<String> vetor = new Vetor<String>(3);
+        vetor.adiciona("A", 0);
+        vetor.adiciona("B", 1);
+        vetor.adiciona("C", 2);
+
+        boolean resultado = vetor.contem("D");
+
+        assertFalse(resultado);
+    }
 }
