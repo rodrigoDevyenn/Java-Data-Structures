@@ -64,11 +64,23 @@ public class Vetor<T> {
     }
 
     public boolean contem(T elemento){
+        
         int indice = buscaPorElemento(elemento);
         if (indice >= 0){
             return true;
         }
         return false;
+    }
+
+    public int ultimoIndice(T elemento){
+
+        for (int i = (this.tamanho - 1); i >= 0; i--){
+            if (this.elementos[i].equals(elemento)){
+                return i;
+            }
+        }
+        return -1;
+
     }
 
     @SuppressWarnings("unchecked")

@@ -312,4 +312,64 @@ public class VetorTest {
 
         assertFalse(resultado);
     }
+
+    @Test
+    void ultimoIndicePrimeiraPosicao(){
+        
+        Vetor<String> vetor = new Vetor<String>(5);
+        vetor.adiciona("A", 0);
+        vetor.adiciona("B", 1);
+        vetor.adiciona("C", 2);
+        vetor.adiciona("D", 3);
+        vetor.adiciona("E", 4);
+
+        int indice = vetor.ultimoIndice("A");
+
+        assertEquals(0, indice);
+    }
+
+    @Test
+    void ultimoIndiceRepetidoDuasVezes(){
+        
+        Vetor<String> vetor = new Vetor<String>(5);
+        vetor.adiciona("A", 0);
+        vetor.adiciona("B", 1);
+        vetor.adiciona("A", 2);
+        vetor.adiciona("D", 3);
+        vetor.adiciona("E", 4);
+
+        int indice = vetor.ultimoIndice("A");
+
+        assertEquals(2, indice);
+    }
+
+    @Test
+    void ultimoIndiceRepetidoTresVezes(){
+        
+        Vetor<String> vetor = new Vetor<String>(5);
+        vetor.adiciona("A", 0);
+        vetor.adiciona("B", 1);
+        vetor.adiciona("A", 2);
+        vetor.adiciona("D", 3);
+        vetor.adiciona("A", 4);
+
+        int indice = vetor.ultimoIndice("A");
+
+        assertEquals(4, indice);
+    }
+
+    @Test
+    void ultimoIndiceElementoInexistente(){
+        
+        Vetor<String> vetor = new Vetor<String>(5);
+        vetor.adiciona("A", 0);
+        vetor.adiciona("B", 1);
+        vetor.adiciona("C", 2);
+        vetor.adiciona("D", 3);
+        vetor.adiciona("E", 4);
+
+        int indice = vetor.ultimoIndice("F");
+
+        assertEquals(-1, indice);
+    }
 }
