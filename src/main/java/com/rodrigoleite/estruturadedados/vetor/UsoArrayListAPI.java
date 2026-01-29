@@ -3,7 +3,7 @@ package com.rodrigoleite.estruturadedados.vetor;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.rodrigoleite.estruturadedados.classesobjeto.Contato;
+import com.rodrigoleite.estruturadedados.classesdeuso.Contato;
 
 public class UsoArrayListAPI {
     

@@ -1,4 +1,4 @@
-package com.rodrigoleite.estruturadedados.classesobjeto;
+package com.rodrigoleite.estruturadedados.classesdeuso;
 
 public class Contato {
 
