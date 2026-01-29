@@ -1,10 +1,10 @@
 package com.rodrigoleite.estruturadedados;
 
-import org.junit.jupiter.api.Test;
-
 import com.rodrigoleite.estruturadedados.pilha.Pilha;
-
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PilhaTest {
 
@@ -34,6 +34,24 @@ public class PilhaTest {
 
         assertEquals("[1, 2, 3, 4, 5]", pilha.toString());
         assertEquals(5, pilha.getTamanho());
+    }
+
+    @Test
+    void pilhaEstaVazia(){
+        Pilha<Integer> pilha = new Pilha<Integer>();
+        boolean resposta = pilha.estaVazia();
+        assertTrue(resposta);
+    }
+
+    @Test
+    void pilhaNaoEstaVazia(){
+        Pilha<Integer> pilha = new Pilha<Integer>();
+        pilha.empilhar(1);
+        pilha.empilhar(2);
+        pilha.empilhar(3);
+
+        boolean resposta = pilha.estaVazia();
+        assertFalse(resposta);
     }
 
     
