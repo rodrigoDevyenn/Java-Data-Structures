@@ -9,8 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+         <maven.compiler.release>25</maven.compiler.release>
     </properties>
 
     <dependencies>
@@ -34,6 +33,9 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.11</version>
+                <configuration>
+                    <release>25</release>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
