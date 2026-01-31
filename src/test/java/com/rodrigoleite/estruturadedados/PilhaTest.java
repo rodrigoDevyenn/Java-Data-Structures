@@ -70,6 +70,24 @@ public class PilhaTest {
     
         assertEquals(null, pilha.topo());
     }
+    
+    @Test
+    void desempilharPilha(){
+        Pilha<Integer> pilha = new Pilha<Integer>();
+        pilha.empilhar(1);
+        pilha.empilhar(2);
+        pilha.empilhar(3);
+
+        assertEquals(3, pilha.desempilhar());
+        assertEquals("[1, 2]", pilha.toString());
+    }
+
+    @Test
+    void desempilharPilhaVazia(){
+        Pilha<Integer> pilha = new Pilha<Integer>();
+    
+        assertEquals(null, pilha.desempilhar());
+    }
 
     
 }
