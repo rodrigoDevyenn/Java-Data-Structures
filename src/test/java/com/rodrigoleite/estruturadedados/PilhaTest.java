@@ -54,5 +54,22 @@ public class PilhaTest {
         assertFalse(resposta);
     }
 
+    @Test
+    void verificarTopoDaPilha(){
+        Pilha<Integer> pilha = new Pilha<Integer>();
+        pilha.empilhar(1);
+        pilha.empilhar(2);
+        pilha.empilhar(3);
+
+        assertEquals(3, pilha.topo());
+    }
+
+    @Test
+    void verificarTopoDaPilhaVazia(){
+        Pilha<Integer> pilha = new Pilha<Integer>();
+    
+        assertEquals(null, pilha.topo());
+    }
+
     
 }
